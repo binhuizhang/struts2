@@ -8,5 +8,6 @@
 </head>
 <body>
 	welcome!struts introduction;
+	i got this;
 </body>
 </html>
