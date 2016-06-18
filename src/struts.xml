@@ -2,6 +2,7 @@
 <!DOCTYPE struts PUBLIC
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- http://struts.apache.org/dtds/struts-2.3.dtd 的意思是后面这些标签的描述文件，也可在本地引入 -->
 
 <struts>
 <!-- 
@@ -30,6 +31,14 @@
 
     <include file="example.xml"/>
 -->
+
+
+	<!-- 开发模式为true，则修改的struts.xml直接生效 -->
+	<constant name="struts.devMode" value="true" />
+	
+	<!-- 动态调用同一个action里面的不同方法，默认是关闭的，要打开！ -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	
 	<package name="default" namespace="/" extends="struts-default">
 
         <action name="index">
@@ -38,4 +47,47 @@
             </result>
         </action>
    </package>
+   <package name="front" namespace="/front" extends="struts-default">
+
+        <action name="index2">
+            <result >
+                /index2.jsp
+            </result>
+        </action>
+   </package>
+   
+   <package name="first" namespace="/first" extends="struts-default">
+        
+        <action name="myaction" class="com.zbh.action.MyAction1">
+            <result >
+                /myaction.jsp
+            </result>
+        </action>
+        
+        <action name="userAddMethod" class="com.zbh.action.MyAction1" method="userAdd">
+            <result name="useradd">
+                /userAdd.jsp
+            </result>
+        </action>
+        
+		<action name="userAdd" class="com.zbh.action.MyAction1">
+            <result name="useradd">
+                /userAdd.jsp
+            </result>
+            <result name="myaction">
+            	/myaction.jsp
+            </result>
+        </action>
+        
+        <action name="*_*" class="com.zbh.action.{1}Action" method="{2}">
+            <result>
+                /{1}_{2}Success.jsp
+            </result>
+        </action>
+        
+   </package>
+   
+
+
+   
 </struts>
