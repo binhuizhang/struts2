@@ -46,48 +46,12 @@
                 /index.jsp
             </result>
         </action>
-   </package>
-   <package name="front" namespace="/front" extends="struts-default">
-
-        <action name="index2">
+        
+        <action name="user" class="com.zbh.action.UserAdd">
             <result >
-                /index2.jsp
+                /result.jsp
             </result>
         </action>
    </package>
-   
-   <package name="first" namespace="/first" extends="struts-default">
-        
-        <action name="myaction" class="com.zbh.action.MyAction1">
-            <result >
-                /myaction.jsp
-            </result>
-        </action>
-        
-        <action name="userAddMethod" class="com.zbh.action.MyAction1" method="userAdd">
-            <result name="useradd">
-                /userAdd.jsp
-            </result>
-        </action>
-        
-		<action name="userAdd" class="com.zbh.action.MyAction1">
-            <result name="useradd">
-                /userAdd.jsp
-            </result>
-            <result name="myaction">
-            	/myaction.jsp
-            </result>
-        </action>
-        
-        <action name="*_*" class="com.zbh.action.{1}Action" method="{2}">
-            <result>
-                /{1}_{2}Success.jsp
-            </result>
-        </action>
-        
-   </package>
-   
-
-
    
 </struts>

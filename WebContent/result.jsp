@@ -5,16 +5,21 @@
     String path = request.getContextPath(); //这个取到的是webapp的名字；
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+"/"+path+"/";
 %>
+<%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-<base href=<%=basePath%> />
+<base href=<%=basePath%>></base>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>welcome!struts introduction;</title>
-</head>
 
+<link rel="stylesheet" type="text/css" href="./style/common.css" />
+</head>
 <body>
-	<a href="<%= basePath%>first/myaction"> 跳到myaction</a>
-	<a href="first/myaction"> 跳到myaction</a>
-	<a href="/Struts_Introduction/first/myaction"> 跳到myaction</a>
+	this is the result page of OGNL introduction;<br />
+	
+	<s:property value="username" /><br />
+	<s:property value="password" /><br />
+	<s:property value="user.age" /><br />
+	<s:debug />
 </body>
 </html>
