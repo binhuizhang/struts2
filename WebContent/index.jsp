@@ -18,5 +18,10 @@
 	
 	<a href="user!userAdd?username=u&password=p&user.age=9">传参</a><br />
 	<a href="user!userAdd?username=u&password=p">不传参，action自己new</a><br />
+	
+	
+	<p>我思故我在</p>
+	<p>我思故我在</p>
+	<p>我思故我在</p>
 </body>
 </html>
